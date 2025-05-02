@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+// Recursive function to find nth Fibonacci number
+int fibonacci_recursive(int n) {
+    if (n == 0)
+        return 0;
+    else if (n == 1)
+        return 1;
+    return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2);
+}
+
+// Iterative function to print first n Fibonacci numbers
+void fibonacci_iterative(int n) {
+    int a = 0, b = 1, next;
+    printf("Fibonacci Series (Iterative): ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", a);
+        next = a + b;
+        a = b;
+        b = next;
+    }
+    printf("\n");
+}
+
+int main() {
+    int terms;
+    printf("Enter the number of terms: ");
+    scanf("%d", &terms);
+
+    printf("Fibonacci Series (Recursive): ");
+    for (int i = 0; i < terms; i++)
+        printf("%d ", fibonacci_recursive(i));
+    printf("\n");
+
+    fibonacci_iterative(terms);
+
+    return 0;
+}
